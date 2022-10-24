@@ -1,19 +1,11 @@
 <?php
-if (isset($_GET['id'])) { // check url for id
-
-    $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?'); // get specified product from db
-    $stmt->execute([$_GET['id']]);
-
-    $product = $stmt->fetch(PDO::FETCH_ASSOC); // returns as array
-
-    if (!$product) { //making sure product id exists else error
-        exit('Product does not exist!');
+if (isset($_POST['quantity'])) {
+    if (isset($_POST['id'])) {
+        $_SESSION['qty'] = $_POST['quantity'] + $_SESSION['qty'];
     }
 }
 ?>
-<link href="./styles.css" rel="stylesheet">
 <div class="product-wrapper">
-    <img src="http://localhost/Halloween_Cart/images/<?= $product['image'] ?>" width="400" height="450" alt="<?= $product['productName'] ?>">
     <div>
         <h1 class="name"><?= $product['productName'] ?></h1>
         <div class="price">
