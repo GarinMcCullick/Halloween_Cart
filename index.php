@@ -6,6 +6,8 @@ $pdo = pdo_connect_mysql();
 //if uri (url) comes back with "page name" and a file exists it sets associative array value to the correct page which then displays in the index body.
 if (strpos($_SERVER['REQUEST_URI'], "product") !== false) {
     $page = isset($_GET['page']) && file_exists($_GET['page'] . '.php') ? $_GET['page'] : 'product';
+} else if (strpos($_SERVER['REQUEST_URI'], "cart") !== false) {
+    $page = isset($_GET['page']) && file_exists($_GET['page'] . '.php') ? $_GET['page'] : 'cart';
 } else {
     $page = isset($_GET['page']) && file_exists($_GET['page'] . '.php') ? $_GET['page'] : 'home';
 }

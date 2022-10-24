@@ -23,9 +23,15 @@ if (isset($_GET['id'])) { // check url for id
             <?= $product['description'] ?>
         </div>
         <form action="index.php?page=cart" method="post">
-            <input type="number" name="quantity" value="1" min="1" max="<?= $_POST['quantity'] ?>" placeholder="Quantity" required>
-            <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
-            <input type="submit" value="Add To Cart">
+            <div>
+                <input type="number" name="quantity" value="1" min="1" max="5" placeholder="Quantity" required>
+            </div>
+            <div>
+                <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
+                <input type="hidden" name="product_price" value="<?= $product['price'] ?>">
+                <input type="hidden" name="product_name" value="<?= $product['productName'] ?>">
+                <input type="submit" value="Add To Cart">
+                <div>
         </form>
     </div>
 </div>

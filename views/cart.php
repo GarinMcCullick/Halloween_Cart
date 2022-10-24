@@ -1,23 +1,41 @@
 <?php
 if (isset($_POST['quantity'])) {
-    if (isset($_POST['id'])) {
-        $_SESSION['qty'] = $_POST['quantity'] + $_SESSION['qty'];
+    if (isset($_POST['product_id'])) {
+        //set session values if qty and id are posted
+        $_SESSION['qty'] = $_POST['quantity'];
+        $_SESSION['productID'] = $_POST['product_id'];
+        $_SESSION['product_name'] = $_POST['product_name'];
+        $_SESSION['product_price'] = $_POST['product_price'];
+        //set variables to session qty / id for quick reference
+        $product_id = $_SESSION['productID'];
+        $quantity = $_SESSION['qty'];
+        $Name = $_SESSION['product_name'];
+        $Price = $_SESSION['product_price'];
+        $total = $Price * $quantity;
     }
 }
+
 ?>
-<div class="product-wrapper">
-    <div>
-        <h1 class="name"><?= $product['productName'] ?></h1>
+<link href="./styles.css" rel="stylesheet">
+<div class="cart-wrapper">
+    <div class="cart-item-wrapper">
+        <h2 class="cart-h2">Your Cart!</h2>
+        <div class="name">
+            <span>Item:</span>
+            <?= $Name ?>
+        </div>
+        <div>
+            <span>QTY:</span>
+            <?= $quantity ?>
+        </div>
+
         <div class="price">
-            &dollar;<?= $product['price'] ?>
+            <span>price:</span>
+            &dollar;<?= $Price ?>
         </div>
-        <div class="description">
-            <?= $product['description'] ?>
-        </div>
-        <form action="index.php?page=cart" method="post">
-            <input type="number" name="quantity" value="1" min="1" max="<?= $_POST['quantity'] ?>" placeholder="Quantity" required>
-            <input type="hidden" name="product_id" value="<?= $product['id'] ?>">
-            <input type="submit" value="Add To Cart">
-        </form>
+    </div>
+    <div class="cart-total-wrapper">
+        <h2 class="cart-h2">subtotal:</h2>
+        &dollar;<?= $total ?>.00
     </div>
 </div>
