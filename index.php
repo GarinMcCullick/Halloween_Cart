@@ -1,5 +1,10 @@
 <?php
 session_start();
+if (!isset($_SESSION['cart'])) {
+    $_SESSION['cart'] = array();
+} else {
+    $_SESSION['cart'];
+}
 include './models/productsModel.php';
 $pdo = pdo_connect_mysql();
 /*basic page routing*/
