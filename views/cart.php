@@ -46,7 +46,7 @@ if (isset($_POST['quantity'])) {
     </div>
     <div class="cart-total-wrapper">
         <button class="checkout">
-            <a href="Halloween_Cart/">Continue Shopping</a>
+            <a href="/Halloween_Cart/">Continue Shopping</a>
         </button>
 
         <h2 class="cart-h2">subtotal:&dollar;<?= $_SESSION['product_price'] * $_SESSION['qty']; ?>.00</h2>
