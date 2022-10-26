@@ -4,18 +4,9 @@ $action = null;
 if (isset($_POST['quantity'])) {
     if (isset($_POST['product_id'])) {
         //set session values if qty and id are posted
-    
+
         $item = array($_POST['product_name'], $_POST['quantity'], $_POST['product_price']);
         array_push($_SESSION['cart'], $item);
-        /*
-        $_SESSION['cart']['product_Name'] = $_POST['product_name'];
-        $_SESSION['cart']['product_quantity'] = $_POST['quantity'];
-        $_SESSION['cart']['product_price'] = $_POST['product_price'];
-        //put values into cart array after getting from form post
-        array_push($_SESSION['cart'], $_POST['quantity'])
-        array_push($_SESSION['cart'], $_SESSION['product_Name']);
-        array_push($_SESSION['cart'], $_SESSION['product_price']);*/
-        print_r($_SESSION['cart']);
     }
 }
 ?>
@@ -23,43 +14,73 @@ if (isset($_POST['quantity'])) {
 <div class="cart-wrapper">
     <div class="cart-item-wrapper">
         <h2 class="cart-h2">Your Cart!</h2>
-        <div class="name">
-            <span>Item:</span>
-            <?php foreach ($_SESSION['cart'] as $value) : ?>
-                <?php
-                echo $value[0];
-                ?>
-            
+        <div class="item-inner-top-wrapper">
+            <span>Item:</span><span>QTY:</span><span>price:</span>
         </div>
-        <div>
-            <span>QTY:</span>
-               <?php echo $value[1]; ?>
+        <div class="item-inner-bottom-wrapper">
+
+            <div class='name-cart'>
+                <?php foreach ($_SESSION['cart'] as $value) : ?>
+                    <?php
+                    echo "<span class='cart-inner-span'>";
+                    echo $value[0];
+                    echo "</span>";
+                    ?>
+                <?php endforeach; ?>
+            </div>
+
+            <div class='quantity-cart'>
+                <?php foreach ($_SESSION['cart'] as $value) : ?>
+                    <?php
+                    echo "<span class='cart-inner-span'>";
+                    echo $value[1];
+                    echo "</span>";
+                    ?>
+                <?php endforeach; ?>
+            </div>
+
+
+            <div class='price-cart'>
+                <?php foreach ($_SESSION['cart'] as $value) : ?>
+                    <?php
+                    echo "<span class='cart-inner-span'>";
+                    echo "&dollar;" . $value[1] * $value[2];
+                    echo "</span>";
+                    ?>
+                <?php endforeach; ?>
+            </div>
+
         </div>
 
-        <div class="price">
-            <span>price:</span>&dollar;
-            <?php echo $value[2]; ?>
-        </div>
-        <br>
-<?php endforeach; ?>
     </div>
     <div class="cart-total-wrapper">
         <button class="checkout">
             <a href="./index.php">Continue Shopping</a>
         </button>
         <form action="" method="post">
-                <input type="hidden" value = "empty_cart" name="action">
-                <input type="submit" value ="Empty Cart" class="checkout">
+            <input type="hidden" value="empty_cart" name="action">
+            <input type="submit" value="Empty Cart" class="checkout">
         </form>
         <?php
-            $action = filter_input(INPUT_POST, 'action');
-            if ($action == "empty_cart")
-            {
-                $_SESSION['cart'] = array();
-            }
-            ?>
+        $action = filter_input(INPUT_POST, 'action');
+        if ($action == "empty_cart") {
+            $_SESSION['cart'] = array();
+        }
 
-        <h2 class="cart-h2">subtotal:&dollar;<?= $_SESSION['product_price'] * $_SESSION['qty']; ?>.00</h2>
+        ?>
+
+        <h2 class="cart-h2">Total:
+            <?php
+            $totalPriceValues = array();
+            foreach ($_SESSION['cart'] as $value) : ?>
+                <?php
+                array_push($totalPriceValues, $value[1] * $value[2]);
+                ?>
+            <?php endforeach;
+            $totalPrice = array_sum($totalPriceValues);
+
+            echo "&dollar;" . $totalPrice . ".00";
+            ?></h2>
 
         <button class="continue-shopping">
 
