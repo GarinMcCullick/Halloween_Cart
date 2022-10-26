@@ -29,6 +29,7 @@ if (strpos($_SERVER['REQUEST_URI'], "product") !== false) {
 </head>
 
 <body>
+    <?php ?>
     <?php
     include "../Halloween_Cart/views/" . $page . '.php';
     ?>
