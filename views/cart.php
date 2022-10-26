@@ -1,5 +1,5 @@
 <?php
-
+$action = null;
 
 if (isset($_POST['quantity'])) {
     if (isset($_POST['product_id'])) {
@@ -27,9 +27,10 @@ if (isset($_POST['quantity'])) {
                 <?php
 
 
-                echo $value
+                echo $value;
+                echo ("<br>");
 
-
+                
                 ?>
             <?php endforeach; ?>
         </div>
@@ -46,8 +47,19 @@ if (isset($_POST['quantity'])) {
     </div>
     <div class="cart-total-wrapper">
         <button class="checkout">
-            <a href="/Halloween_Cart/">Continue Shopping</a>
+            <a href="./index.php">Continue Shopping</a>
         </button>
+        <form action="" method="post">
+                <input type="hidden" value = "empty_cart" name="action">
+                <input type="submit" value ="Empty Cart" class="checkout">
+        </form>
+        <?php
+            $action = filter_input(INPUT_POST, 'action');
+            if ($action == "empty_cart")
+            {
+                $_SESSION['cart'] = array();
+            }
+            ?>
 
         <h2 class="cart-h2">subtotal:&dollar;<?= $_SESSION['product_price'] * $_SESSION['qty']; ?>.00</h2>
 
