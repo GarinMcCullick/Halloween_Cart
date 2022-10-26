@@ -4,15 +4,17 @@ $action = null;
 if (isset($_POST['quantity'])) {
     if (isset($_POST['product_id'])) {
         //set session values if qty and id are posted
-        $_SESSION['qty'] = $_POST['quantity'];
-        $_SESSION['productID'] = $_POST['product_id'];
-        $_SESSION['product_Name'] = $_POST['product_name'];
-        $_SESSION['product_price'] = $_POST['product_price'];
+    
+        $item = array($_POST['product_name'], $_POST['quantity'], $_POST['product_price']);
+        array_push($_SESSION['cart'], $item);
+        /*
+        $_SESSION['cart']['product_Name'] = $_POST['product_name'];
+        $_SESSION['cart']['product_quantity'] = $_POST['quantity'];
+        $_SESSION['cart']['product_price'] = $_POST['product_price'];
         //put values into cart array after getting from form post
-        array_push($_SESSION['cart'], $_SESSION['qty']);
-        array_push($_SESSION['cart'], $_SESSION['productID']);
+        array_push($_SESSION['cart'], $_POST['quantity'])
         array_push($_SESSION['cart'], $_SESSION['product_Name']);
-        array_push($_SESSION['cart'], $_SESSION['product_price']);
+        array_push($_SESSION['cart'], $_SESSION['product_price']);*/
         print_r($_SESSION['cart']);
     }
 }
@@ -25,25 +27,21 @@ if (isset($_POST['quantity'])) {
             <span>Item:</span>
             <?php foreach ($_SESSION['cart'] as $value) : ?>
                 <?php
-
-
-                echo $value;
-                echo ("<br>");
-
-                
+                echo $value[0];
                 ?>
-            <?php endforeach; ?>
+            
         </div>
         <div>
             <span>QTY:</span>
-
+               <?php echo $value[1]; ?>
         </div>
 
         <div class="price">
             <span>price:</span>&dollar;
-
+            <?php echo $value[2]; ?>
         </div>
-
+        <br>
+<?php endforeach; ?>
     </div>
     <div class="cart-total-wrapper">
         <button class="checkout">
