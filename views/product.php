@@ -13,7 +13,7 @@ if (isset($_GET['id'])) { // check url for id
 ?>
 <link href="./styles.css" rel="stylesheet">
 <div class="product-wrapper">
-    <img src="http://localhost/Halloween_Cart/images/<?= $product['image'] ?>" width="400" height="450" alt="<?= $product['productName'] ?>">
+    <img src="./images/<?= $product['image'] ?>" width="400" height="450" alt="<?= $product['productName'] ?>">
     <div>
         <h1 class="name"><?= $product['productName'] ?></h1>
         <div class="price">
