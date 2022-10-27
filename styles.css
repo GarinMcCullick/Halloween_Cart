@@ -230,10 +230,18 @@ h2 {
   text-align: center;
 }
 
+.product-wrapper img {
+  border: solid 5px orange;
+}
+
 .product-wrapper input {
   width: 100px;
   height: 25px;
   text-align: center;
+}
+
+.description {
+  letter-spacing: 0.2rem;
 }
 
 .cart-wrapper {
@@ -308,19 +316,15 @@ h2 {
 }
 
 .cart-title-h2 p {
-  background: /* gradient can be an image */
-    linear-gradient(
-      to left, 
+  background: /* gradient can be an image */ linear-gradient(
+      to left,
       rgba(245, 245, 245, 0.9) 0%,
       rgb(255, 165, 0) 50%,
-      rgb(255,165,0) 50%,
+      rgb(255, 165, 0) 50%,
       rgb(245, 245, 245) 100%
     )
-    left 
-    bottom
-    no-repeat; 
-  background-size:100% 5px ;/* if linear-gradient, we need to resize it */
-}
+    left bottom no-repeat;
+  background-size: 100% 2px; /* if linear-gradient, we need to resize it */
 }
 
 .cart-total-wrapper a {
@@ -332,6 +336,11 @@ h2 {
   width: 150px;
   height: 50px;
   background-color: lightcyan;
+}
+
+.checkout a {
+  color: black;
+  text-decoration: none;
 }
 
 .checkout:hover {
