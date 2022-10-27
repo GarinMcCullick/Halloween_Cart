@@ -270,7 +270,8 @@ h2 {
   height: 70%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-evenly;
+  justify-content: center;
+  overflow-y: auto;
 }
 
 .cart-item-wrapper div span {
@@ -309,21 +310,38 @@ h2 {
 }
 
 .name-cart {
+  width: 25%;
   letter-spacing: 0.2rem;
   display: flex;
   flex-flow: column wrap;
+  border-left: 1px solid black;
+}
+
+.name-cart span {
+  text-align: center;
 }
 
 .price-cart {
+  width: 25%;
+  letter-spacing: 0.1rem;
+  display: flex;
+  flex-flow: column wrap;
+  border-right: 1px solid black;
+}
+
+.price-cart span {
+  text-align: center;
+}
+
+.quantity-cart {
+  width: 25%;
   letter-spacing: 0.1rem;
   display: flex;
   flex-flow: column wrap;
 }
 
-.quantity-cart {
-  letter-spacing: 0.1rem;
-  display: flex;
-  flex-flow: column wrap;
+.quantity-cart span {
+  text-align: center;
 }
 
 .cart-inner-span {
