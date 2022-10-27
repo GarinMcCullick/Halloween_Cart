@@ -183,17 +183,20 @@ h2 {
 }
 
 .product:hover a {
-  color: orange;
+  color: darkorange;
 }
 
 .product-image {
   width: 200px;
   height: 300px;
   border: 5px solid grey;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .product:hover .product-image {
-  border: 5px solid orange;
+  border: 5px solid darkorange;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .name {
@@ -231,7 +234,7 @@ h2 {
 }
 
 .product-wrapper img {
-  border: solid 5px orange;
+  border: solid 5px darkorange;
 }
 
 .product-wrapper input {
