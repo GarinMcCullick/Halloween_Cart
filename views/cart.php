@@ -13,7 +13,7 @@ if (isset($_POST['quantity'])) {
 <link rel="stylesheet" href="styles.css?v=<?php echo time(); ?>">
 <div class="cart-wrapper">
     <div class="cart-item-wrapper">
-        <h2 class="cart-h2">Your Cart!</h2>
+        <h2 class="cart-title-h2">Your Cart!</h2>
         <div class="item-inner-top-wrapper">
             <span>Item:</span><span>QTY:</span><span>Price:</span>
         </div>
@@ -80,12 +80,11 @@ if (isset($_POST['quantity'])) {
             $totalPrice = array_sum($totalPriceValues);
 
             echo "&dollar;" . $totalPrice . ".00";
-            ?></h2>
+            ?>
+        </h2>
 
         <button class="continue-shopping">
-
             Checkout
-
         </button>
     </div>
 

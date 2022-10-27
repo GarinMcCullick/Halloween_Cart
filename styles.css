@@ -241,15 +241,6 @@ h2 {
   border-radius: 25px;
 }
 
-.cart-h2 {
-  width: 100%;
-  height: 100px;
-  color: black;
-  font-size: 36px;
-  letter-spacing: 0.12rem;
-  text-align: center;
-}
-
 .cart-item-wrapper {
   width: 100%;
   height: 80%;
@@ -285,6 +276,27 @@ h2 {
   flex-flow: row nowrap;
   justify-content: space-evenly;
   align-items: flex-end;
+}
+
+.cart-h2 {
+  width: 25%;
+  height: auto;
+  color: black;
+  font-size: 36px;
+  letter-spacing: 0.12rem;
+  text-align: center;
+
+  display: flex;
+  align-items: flex-end;
+}
+
+.cart-title-h2 {
+  width: 100%;
+  height: 100px;
+  color: orange;
+  font-size: 48px;
+  letter-spacing: 0.12rem;
+  text-align: center;
 }
 
 .cart-total-wrapper a {
