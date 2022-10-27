@@ -182,18 +182,18 @@ h2 {
   line-height: 2rem;
 }
 
-.product a:hover {
+.product:hover a {
   color: orange;
-}
-
-.product-image:hover {
-  border: 5px solid orange;
 }
 
 .product-image {
   width: 200px;
   height: 300px;
   border: 5px solid grey;
+}
+
+.product:hover .product-image {
+  border: 5px solid orange;
 }
 
 .name {
