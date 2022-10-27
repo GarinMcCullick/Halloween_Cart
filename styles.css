@@ -182,6 +182,14 @@ h2 {
   line-height: 2rem;
 }
 
+.product a:hover {
+  color: orange;
+}
+
+.product-image:hover {
+  border: 5px solid orange;
+}
+
 .product-image {
   width: 200px;
   height: 300px;
@@ -297,6 +305,22 @@ h2 {
   font-size: 48px;
   letter-spacing: 0.12rem;
   text-align: center;
+}
+
+.cart-title-h2 p {
+  background: /* gradient can be an image */
+    linear-gradient(
+      to left, 
+      rgba(245, 245, 245, 0.9) 0%,
+      rgb(255, 165, 0) 50%,
+      rgb(255,165,0) 50%,
+      rgb(245, 245, 245) 100%
+    )
+    left 
+    bottom
+    no-repeat; 
+  background-size:100% 5px ;/* if linear-gradient, we need to resize it */
+}
 }
 
 .cart-total-wrapper a {
